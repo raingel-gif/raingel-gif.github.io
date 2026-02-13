@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <title>color changing</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+      padding-top: 50px;
+      transition: background-color 0.3s;
+    }
+    input[type="range"] {
+      width: 300px;
+    }
+    .value {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>RGB Background Slider</h1>
+
+  <p>Red: <input type="range" id="red" min="0" max="255" value="255">
+    <span class="value" id="redVal">128</span></p>
+  <p>Green: <input type="range" id="green" min="0" max="255" value="255">
+    <span class="value" id="greenVal">128</span></p>
+  <p>Blue: <input type="range" id="blue" min="0" max="255" value="255">
+    <span class="value" id="blueVal">128</span></p>
+ <p>By: Rain Tolentino</p>
+  <script>
+    const red = document.getElementById('red');
+    const green = document.getElementById('green');
+    const blue = document.getElementById('blue');
+
+    const redVal = document.getElementById('redVal');
+    const greenVal = document.getElementById('greenVal');
+    const blueVal = document.getElementById('blueVal');
+
+    function updateBackground() {
+      const r = red.value;
+      const g = green.value;
+      const b = blue.value;
+
+      redVal.textContent = r;
+      greenVal.textContent = g;
+      blueVal.textContent = b;
+
+      document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    }
+
+    red.addEventListener('input', updateBackground);
+    green.addEventListener('input', updateBackground);
+    blue.addEventListener('input', updateBackground);
+
+    // Initial background
+    updateBackground();
+  </script>
+</body>
+</html>
